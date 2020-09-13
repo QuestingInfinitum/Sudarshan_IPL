@@ -83,7 +83,7 @@ function visualizeMatchesWonByEachTeam(matchesWonByEachTeam)
         type: "column"
     },
     title: {
-        text: "Matches Won By Each Team"
+        text: "2. Matches Won By Each Team"
     },
     subtitle: {
         text: 'Source: <a href="https://www.kaggle.com/nowke9/ipldata/data">IPL Dataset</a>'
@@ -130,7 +130,7 @@ function visualizeExtraRunConcededByTeam(extraRunsConcededByEachTeam)
       type: "column"
     },
     title: {
-      text: "Extra Runs Conceded By Teams in 2016"
+      text: "3. Extra Runs Conceded By Teams in 2016"
     },
     subtitle: {
       text:
@@ -168,7 +168,7 @@ function visualizeTopEconomicalBowlersIn2015(topEconomicalBowlersIn2015)
       type: "column"
     },
     title: {
-      text: "Top Economic Bowlers in 2015"
+      text: "4. Top Economic Bowlers in 2015"
     },
     subtitle: {
       text:
@@ -204,7 +204,7 @@ function visualizeTopStrikeRateBatsmanIn2017(topStrikeRateBatsmanIn2017)
       type: "column"
     },
     title: {
-      text: "Top Strike Rate Batsman In 2017"
+      text: "5. Story : Top Strike Rate Batsman In 2017"
     },
     subtitle: {
       text:
