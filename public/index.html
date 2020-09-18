@@ -8,12 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link href="./styles.css" rel="stylesheet">
     <title>
-        IPL visualization
+        IPL Visualization
     </title>
 </head>
 
-<body style="background-color:rgb(90, 88, 88);">
-    <h1>IPL Dataset visualization</h1>
+<body>
+    <h1>IPL Dataset Visualization</h1>
+    <div class="input-container">
+        <span class="label">Enter year (2008-2019) : </span>
+        <input type="number" min="2008" max="2019" class="year-input">
+        <button class="year-input-button">Submit</button> 
+    </div>
     
     <div id="matches-played-per-year" style="min-width: 310px; height: 400px; margin: 0 auto"></div> 
    
