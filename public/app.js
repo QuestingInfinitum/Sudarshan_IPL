@@ -7,12 +7,35 @@ function fetchAndVisualizeData() {
 fetchAndVisualizeData();
 
 function visualizeData(data) {
+  let defaultyear = 2015;
   visualizeMatchesPlayedPerYear(data.matchesPlayedPerYear);
   visualizeMatchesWonByEachTeam(data.matchesWonByEachTeam);
   visualizeExtraRunConcededByTeam(data.extraRunsConcededByEachTeam); 
-  visualizeTopEconomicalBowlersIn2015(data.topEconomicalBowlersIn2015);
+  visualizeTopEconomicalBowlers(data.topEconomicalBowlersByYear, defaultyear);
   visualizeTopStrikeRateBatsmanIn2017(data.topStrikeRateBatsmanIn2017);
+
+  document.getElementById("btnSubmit").addEventListener("click",getBowlerDataByYear);
+
   return;
+}
+
+function getBowlerDataByYear(){
+  let year = document.getElementById("txtYear")?.value;
+
+  if(year != undefined && !isNaN(year)){
+
+    if(year<2008 || year >2019){
+      alert("Year must be between 2008 and 2019");
+      return;
+    }
+    else{
+  fetch("./data.json")
+  .then(r => r.json())
+  .then(function(data){
+    visualizeTopEconomicalBowlers(data.topEconomicalBowlersByYear,year)
+    });
+  }
+  }
 }
 
 function visualizeMatchesPlayedPerYear(matchesPlayedPerYear) 
@@ -27,7 +50,7 @@ function visualizeMatchesPlayedPerYear(matchesPlayedPerYear)
       type: "column"
     },
     title: {
-      text: "1. Matches Played Per Year"
+      text: "Matches Played Per Year"
     },
     subtitle: {
       text:
@@ -83,7 +106,7 @@ function visualizeMatchesWonByEachTeam(matchesWonByEachTeam)
         type: "column"
     },
     title: {
-        text: "2. Matches Won By Each Team"
+        text: "Matches Won By Each Team"
     },
     subtitle: {
         text: 'Source: <a href="https://www.kaggle.com/nowke9/ipldata/data">IPL Dataset</a>'
@@ -130,7 +153,7 @@ function visualizeExtraRunConcededByTeam(extraRunsConcededByEachTeam)
       type: "column"
     },
     title: {
-      text: "3. Extra Runs Conceded By Teams in 2016"
+      text: "Extra Runs Conceded By Teams in 2016"
     },
     subtitle: {
       text:
@@ -156,19 +179,21 @@ function visualizeExtraRunConcededByTeam(extraRunsConcededByEachTeam)
 
 
 
-function visualizeTopEconomicalBowlersIn2015(topEconomicalBowlersIn2015) 
+function visualizeTopEconomicalBowlers(topEconomicalBowlers,year) 
 {
   const seriesData = [];
-  for (let bowler in topEconomicalBowlersIn2015) {
-    seriesData.push([bowler, topEconomicalBowlersIn2015[bowler]]);
+  let data = topEconomicalBowlers[year];
+  debugger;
+  for (let bowler in data ) {
+    seriesData.push([bowler, data[bowler]]);
   }
-
-  Highcharts.chart("top-economic-bowlers-in-2015", {
+  
+  Highcharts.chart("EconomicBowler", {
     chart: {
       type: "column"
     },
     title: {
-      text: "4. Top Economic Bowlers in 2015"
+      text: "Top Economic Bowlers in "+year
     },
     subtitle: {
       text:
@@ -204,7 +229,7 @@ function visualizeTopStrikeRateBatsmanIn2017(topStrikeRateBatsmanIn2017)
       type: "column"
     },
     title: {
-      text: "5. Story : Top Strike Rate Batsman In 2017"
+      text: "Story : Top Strike Rate Batsman In 2017"
     },
     subtitle: {
       text:

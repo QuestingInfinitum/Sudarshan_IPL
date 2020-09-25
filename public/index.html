@@ -10,26 +10,34 @@
     <title>
         IPL Visualization
     </title>
+
+    <style>
+       .graph{ min-width: 310px; height: 400px; margin: 0 auto}
+       .graph-won-matches{min-width: 310px; height: 500px; margin: 0 auto}
+    </style>
 </head>
 
 <body>
     <h1>IPL Dataset Visualization</h1>
     <div class="input-container">
         <span class="label">Enter year (2008-2019) : </span>
-        <input type="number" min="2008" max="2019" class="year-input">
-        <button class="year-input-button">Submit</button> 
+        <input type="number" min="2008" max="2019" id="txtYear" class="year-input">
+        <button class="year-input-button" id="btnSubmit">Submit</button>
     </div>
+
+    <div id="EconomicBowler" class="graph"></div>
     
-    <div id="matches-played-per-year" style="min-width: 310px; height: 400px; margin: 0 auto"></div> 
+    <div id="matches-played-per-year" class="graph"></div> 
    
-    <div id="matches-won-by-each-team" style="min-width: 310px; height: 500px; margin: 0 auto"></div> 
+    <div id="matches-won-by-each-team" class="graph-won-matches"></div> 
 
-    <div id="extra-runs-conceded-by-each-team" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="extra-runs-conceded-by-each-team" class="graph"></div>
 
-    <div id="top-economic-bowlers-in-2015" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
-    <div id="top-strike-rate-batsman-in-2017" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <!-- <div id="top-economic-bowlers-in-2015" class="graph"></div> -->
+    
+    <div id="top-strike-rate-batsman-in-2017" class="graph"></div>
  
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
 
     <script src="./app.js"></script> 

@@ -6,6 +6,9 @@ const matchesWonByEachTeam = require("./ipl/matchesWonByEachTeam");
 const extraRunsConcededByEachTeam = require("./ipl/extraRunsConcededByEachTeam");
 const topEconomicalBowlersIn2015 = require("./ipl/topEconomicalBowlersIn2015");
 const topStrikeRateBatsmanIn2017 = require("./ipl/topStrikeRateBatsmanIn2017");
+const topEconomicalBowlersByYear = require("./ipl/topEconomicBowlersByYear");
+const topEconomicBowlersByYear = require("./ipl/topEconomicBowlersByYear");
+const { match } = require("assert");
 
 const MATCHES_FILE_PATH = "./csv_data/matches.csv";
 const DELIVERIES_FILE_PATH = "./csv_data/deliveries.csv";
@@ -24,11 +27,12 @@ function main() {
         result.matchesPlayedPerYear = matchesPlayedPerYear(matches);
         result.matchesWonByEachTeam  = matchesWonByEachTeam(matches);
         result.extraRunsConcededByEachTeam = extraRunsConcededByEachTeam(matches,deliveries);
-        result.topEconomicalBowlersIn2015 = topEconomicalBowlersIn2015(matches,deliveries);
+        //  result.topEconomicalBowlersIn2015 = topEconomicalBowlersIn2015(matches,deliveries);
         result.topStrikeRateBatsmanIn2017 = topStrikeRateBatsmanIn2017(matches,deliveries);
+        result.topEconomicalBowlersByYear = topEconomicBowlersByYear(matches,deliveries);
        
         saveData(result);
-        //console.log(result)
+        // console.log(result)
       
       });
       
