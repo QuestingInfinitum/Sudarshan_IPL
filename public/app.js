@@ -183,7 +183,7 @@ function visualizeTopEconomicalBowlers(topEconomicalBowlers,year)
 {
   const seriesData = [];
   let data = topEconomicalBowlers[year];
-  debugger;
+  //debugger;
   for (let bowler in data ) {
     seriesData.push([bowler, data[bowler]]);
   }
